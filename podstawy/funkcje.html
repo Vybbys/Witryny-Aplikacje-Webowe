@@ -25,6 +25,57 @@
             GetParametr("Już prawie koniec lekcji.");
             GetParametr(125);
 
+            //deklaracje zmiennych 
+
+            var zmienna1 = 5;
+            let zmienna2 = 7;
+            // zmienna globalna, dostepna wszedzie
+            //bez znaczenia gdzie zostala zadeklarowana
+            //patrz zm6
+            zm3 = 9;
+
+            function WyswietlZmienne() {
+                document.writeln("Zm1 " + zmienna1);
+                document.writeln("<br/>")
+                document.writeln("Zm2 " + zmienna2);
+                document.writeln("<br/>")
+                document.writeln("Zm3 " + zm3);
+                document.writeln("<br/>")
+            }
+            WyswietlZmienne();
+
+            function FunkcjaZeZmiennymi() {
+
+                var zm4 = 99;
+                let zm5 = 56;
+                // zmienna globalna dostepna poza funkcja
+                zm6 = 78;
+            }
+            
+
+            FunkcjaZeZmiennymi();
+            // zmienna zm4 i zm5 sa niedostepne poza unkcja
+            /*document.writeln("Zm4 " + zm4);
+            document.writeln("<br/>")
+            document.writeln("Zm5 " + zm5);
+            document.writeln("<br/>")*/
+            document.writeln("Zm6 " + zm6);
+            document.writeln("<br/>")
+
+            function WytlumaczenieVarILet() {
+
+                if (true) {
+                    var zm7 = 12;
+                    let zm8 = 8;
+                }
+
+                document.writeln("Zm7 " + zm7);
+                document.writeln("<br/>");
+                document.writeln("Zm8 " + zm8);
+                document.writeln("<br/>");
+            }
+            WytlumaczenieVarILet();
+
 
         </script>
     </body>
