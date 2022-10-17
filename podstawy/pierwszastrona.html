@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Przykładowy program</title>
+    </head>
+    <body>
+        <h1>Pierwsza strona JS</h1>
+        <script>
+            document.writeln("Tekst z  JS");
+            document.writeln("<br/>");
+            //int nazwaZmiennej = 2;
+            var pierwszaZmienna;
+
+            document.writeln("Zawartość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            pierwszaZmienna = 2;
+
+            pierwszaZmienna = pierwszaZmienna + 1;
+
+            document.writeln("Zawartość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            pierwszaZmienna = "Hello world";
+
+            document.writeln("Zawartość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            pierwszaZmienna = true;
+
+            document.writeln("Zawartość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            document.writeln("<br/>");
+            document.writeln("Operatory porównania:");
+            document.writeln("<br/>");
+
+            //== równości
+            //=== zmienne są tego samego typu i są równe
+            //!= różności
+            //!== zmienne są tego samego typu i są różne
+            //>, >=, <, <=
+
+            var lewaZmienna = 5;
+            var prawaZmienna = "5";
+
+            if (lewaZmienna === prawaZmienna)
+                document.writeln("zmienne równe");
+            else
+                document.writeln("nie równe");
+            document.writeln("<br/>");
+
+            //x = x + 5;
+            //x += 5;
+
+        </script>
+        <p>Tekst po skrypcie</p>
+    </body>
+</html>
