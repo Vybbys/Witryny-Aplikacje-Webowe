@@ -4,6 +4,7 @@
         <title>Przykładowy program</title>
     </head>
     <body>
+        
         <script>
 
             function ShowInfo()
@@ -25,56 +26,109 @@
             GetParametr("Już prawie koniec lekcji.");
             GetParametr(125);
 
-            //deklaracje zmiennych 
-
-            var zmienna1 = 5;
-            let zmienna2 = 7;
-            // zmienna globalna, dostepna wszedzie
-            //bez znaczenia gdzie zostala zadeklarowana
-            //patrz zm6
+            //deklaracje zmiennych
+            var zm1 = 5;
+            let zm2 = 7;
+            //zmienna globalna, dostępna w całym kodzie,
+            //nie ma znaczenia gdzie została zadeklarowana
+            //patrz na zm6
             zm3 = 9;
+            //const st1 = 77;
 
-            function WyswietlZmienne() {
-                document.writeln("Zm1 " + zmienna1);
-                document.writeln("<br/>")
-                document.writeln("Zm2 " + zmienna2);
-                document.writeln("<br/>")
-                document.writeln("Zm3 " + zm3);
-                document.writeln("<br/>")
+            function WyswietlZmienne()
+            {
+                document.writeln("Zm1 "+ zm1);
+                document.writeln("<br/>");
+                document.writeln("Zm2 "+ zm2);
+                document.writeln("<br/>");
+                document.writeln("Zm3 "+ zm3);
+                document.writeln("<br/>");
             }
             WyswietlZmienne();
 
-            function FunkcjaZeZmiennymi() {
+            function FunkcjaZeZmiennymi()
+            {
+                //zmienne zm4 i zm5 dostępne tylko w tej funkcji
+                //poza funkcją nie istnieją
 
                 var zm4 = 99;
-                let zm5 = 56;
-                // zmienna globalna dostepna poza funkcja
-                zm6 = 78;
+                let zm5 = 55;
+                //ta zmienna jest globalna
+                //i dostępna poza funkcją
+                zm6 = 77;
             }
-            
-
             FunkcjaZeZmiennymi();
-            // zmienna zm4 i zm5 sa niedostepne poza unkcja
-            /*document.writeln("Zm4 " + zm4);
-            document.writeln("<br/>")
-            document.writeln("Zm5 " + zm5);
-            document.writeln("<br/>")*/
-            document.writeln("Zm6 " + zm6);
-            document.writeln("<br/>")
 
-            function WytlumaczenieVarILet() {
+            // zmienne zm4 i zm5 nie istnieją
+            /*document.writeln("Zm4 "+ zm4);
+            document.writeln("<br/>");*/
+            /*document.writeln("Zm5 "+ zm5);
+            document.writeln("<br/>");*/
+            document.writeln("Zm6 "+ zm6);
+            document.writeln("<br/>");
 
-                if (true) {
+            function WytlumaczenieVarLet()
+            {
+                if (true)
+                {
+                    //zakres w całej funkcji
                     var zm7 = 12;
-                    let zm8 = 8;
+                    //zakres blokowy
+                    //do nawiasów klamrowych w których jest zadeklarowana
+                    let zm8 = 16;
                 }
 
-                document.writeln("Zm7 " + zm7);
+                document.writeln("Zm7 "+ zm7);
                 document.writeln("<br/>");
-                document.writeln("Zm8 " + zm8);
+                /*document.writeln("Zm8 "+ zm8);
+                document.writeln("<br/>");*/
                 document.writeln("<br/>");
             }
-            WytlumaczenieVarILet();
+            WytlumaczenieVarLet();
+
+            function FunkcjaPetlowa() {
+
+                for(i = 0; i < 10; i++) {
+
+                    document.writeln(i);
+                    document.writeln("<br/>");
+                    
+                }
+
+                //document.writeln(i);
+
+            }
+            FunkcjaPetlowa();
+            //document.writeln(i);
+
+            function Funkcja2Parametry(parametr1, parametr2) {
+
+                document.writeln(parametr1);
+                document.writeln("<br/>");
+                document.writeln(parametr2);
+                document.writeln("<br/>");
+            }
+
+            Funkcja2Parametry("Ala ma kota" , 12345);
+
+            Funkcja2Parametry("Kot ma Ale", 420);
+            
+            Funkcja2Parametry("", 123);
+
+
+            function SumaParametrow(par1, par2) {
+
+               let wynik;
+
+                wynik = par1 % par2;
+
+                return wynik;
+            }
+
+            var sumaFunkcji = SumaParametrow(150, 17);
+            document.writeln(sumaFunkcji);
+            document.writeln("<br/>");
+
 
 
         </script>
