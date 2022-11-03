@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //obietky typu string
+
+        /*
+        let tekst = "Ala ma kota";
+
+        document.writeln(tekst + " ma dlugosc "
+        + tekst.length + "<br/>");
+
+        let podtekst = tekst.substring(7, 11);
+
+        document.writeln(podtekst + "<br/>")
+        document.writeln(tekst[5] + "<br/>");
+        document.write(tekst.toUpperCase() + "<br/>");
+        document.writeln(tekst.toLowerCase() + "<br/>");
+
+        let nowyTekst = new String("Nowy Tekst" + "<br/>");
+        
+        document.writeln(nowyTekst);
+
+        //obiekty typu Array
+
+        let tab = [];
+        let tab1 = new Array();
+        let tab2 = new Array(5);
+
+        tab = ["Ala ", "Ela ", "Ola "];
+
+        document.write("Tablica:<br/>");
+        document.write(tab.join() + "<br/>");
+        tab.sort();
+        document.write(tab.join() + "<br/>");
+
+        tab = [5, 1, 12, 8];
+
+        function porownajLiczby(a, b){
+            if(a > b)
+                return -1;
+            if(a == b)
+                return 0;
+            if(a < b)
+                return 2;
+        }
+
+        tab.sort(porownajLiczby);
+        document.writeln(tab.join() + "<br/>");
+
+        function BubbleSort(tab) {
+            for(let i = 0; i < tab.length - 1; i++)
+                for(let j = 0; j < tab.length - 1; j++)
+                    //if(tab[j] > tab[j+1])
+                    if(porownajLiczby(tab[j], tab[j + 1])) {
+                        let temp = tab[j];
+                        tab[j] = tab[j + 1];
+                        tab[j + 1] = temp;
+                    }
+        }
+        BubbleSort(tab);
+        document.write(tab);
+
+        //obiekt typu Date
+        
+        let data = new Date();
+
+        document.write("<br/>");
+        document.write(data + "<br/>");
+        document.write(data.toDateString() + "<br/>");
+        document.write(data.toUTCString() + "<br/>");
+
+        document.write("Rok: " + data.getFullYear() + "<br/>" 
+        + "Miesiac: " + data.getMonth() + "<br/>"  
+        + "Dzien tygodnia: " + data.getDay() + "<br/>"
+        + "Dzien miesiaca: " + data.getDate() + "<br/>"
+        + "Godzina: " + data.getHours() + "<br/>" 
+        + "Minuta: " + data.getMinutes() + "<br/>" 
+        + "Sekunda: " + data.getSeconds() + "<br/>" 
+        + "Milisekundy: " + data.getMilliseconds());
+        */
+
+        function aktualnaData() {
+            let data = new Date();
+            document.write("1243");
+        }
+        aktualnaData();
+    </script>
+</body>
+</html>
