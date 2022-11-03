@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="Wyswietl" onclick="showTime()">
+    <script>
+        function showTime() {
+            let data = new Date();
+
+            let hour = Time(data.getHours());
+            let minutes = Time(data.getMinutes());
+            let seconds = Time(data.getSeconds());
+            let time = hour + ":" + minutes + ":" + seconds;
+
+            document.getElementById("date").innerHTML = time;
+            document
+
+
+        }
+
+        function Time(element) {
+            if(element < 10) 
+                return "0" + element;
+            return element;
+        }
+
+        window.setInterval(showTime, 1000);
+   
+    </script>
+
+    <div id = "date">
+        Data
+    </div>
+</body>
+</html>

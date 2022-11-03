@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zdazenia HTML</title>
+</head>
+<body>
+    <h1>Zdazenia html </h1>
+
+    <script>
+        function changeText() {
+            let elementToChange = document.getElementById("textToChange");
+            let elementNewText = document.getElementById("newText");
+            elementToChange.innerHTML = elementNewText.value;
+            
+        }
+
+        function showTime() {
+            
+        }
+    </script>
+
+    <input type="button" value="Klik" onclick="changeText()" />
+    <input type="text" name="dupa" id="newText">
+
+    <div id = "textToChange">
+        <a style="font-size: 30px;">Podmien ten tekst</a>
+    </div>
+
+    <input type="button" value="Wyswietl" onclick="showTime()">
+    <div id = "showTime">
+        Aktualna godzina
+    </div>
+</body>
+</html>
