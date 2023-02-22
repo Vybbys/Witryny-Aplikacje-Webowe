@@ -1,0 +1,71 @@
+*{
+    font-family: Garamond;
+    margin: 0;
+}
+
+#lewyG{
+    background-color: lavender;
+    height: 500px;
+    width: 25%;
+    float: left;
+}
+#lewyD{
+    background-color: lavender;
+    height: 300px;
+    width: 25%;
+    float: left;
+}
+
+#prawyG{
+    background-color: indigo;
+    color: white;
+    font-size: 200%;
+    height: 150px;
+    width: 75%;
+    text-align: center;
+    float:right;
+}
+
+#prawyD{
+    background-color: lavender;
+    font-size: 200%;
+    height: 650px;
+    width: 75%;
+    text-align: center;
+    float: right;
+}
+
+ul{
+    list-style-type: square;
+}
+
+#stopka{
+    background-color: indigo;
+    color: white;
+    text-align: right;
+}
+
+#stopka{
+    clear: both;
+}
+
+#img1{
+    height:250px;
+    margin: 10px;
+    padding: 5px;
+}
+
+#img1:hover{
+    margin: 4px;
+    border: 1px solid indigo;
+}
+
+#img2{
+    width:800px;
+    margin: 10px;
+    padding: 5px;
+}
+
+#img2:hover{
+    border: 1px solid indigo;
+}

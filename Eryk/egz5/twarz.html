@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Usługi kosmetyczne </title>
+    <link rel = "stylesheet" href = "styl.css" />
+</head>
+<body>
+    <div id="lewyG">
+    <h2> W ofercie </h2>
+    <br>
+    <ul>
+        <li>
+            <a href="twarz.html"> Zabiegi na twarz</a>
+            <ol>
+                <li> Piling </li>
+                <li> Maska </li>
+                <li> Regulacja brwi </li>
+            </ol>
+        </li>
+        <li> Masaż </li>
+        <li> Diety oczyszczające </li>
+        <br>
+    </ul>
+    <a href="index.html"> Do strony głównej</a>
+    </div>
+    
+    <div id="prawyG">
+    <h1> Salon Komsetyczny</h1>
+    </div>
+
+    <div id="prawyD">
+    <h2> Sprawdź cenę swojej wizyty</h2>
+    <input type="checkbox" id="piling"> Piling <br>
+    <input type="checkbox" id="maska"> Maska <br>
+    <input type="checkbox" id="masaż"> Masaż twarzy <br>
+    <input type="checkbox" id="brwi"> Regulacja brwi <br>
+    <input type="button" value="Sprawdź cenę" onclick="zabiegi()">
+    <p id = "wynik" ></p>
+    </div>
+    <div id="lewyD">
+        <img src="obraz1.jpg" alt="Kosmetyczka" id="img1">
+        </div>
+
+    <div id="stopka">
+        Autor: Filip Gos Czech 
+    </div> 
+    <script>
+        function zabiegi()
+        {
+            var cena = 0;
+            if(document.getElementById('piling').checked)
+                cena += 45;
+            if(document.getElementById('maska').checked)
+                cena += 30;
+            if(document.getElementById('masaż').checked)
+                cena += 20;
+            if(document.getElementById('brwi').checked)
+                cena += 5;
+            
+
+
+            document.getElementById('wynik').innerHTML = "Cena zabiegów: " + cena;
+            
+        }
+    </script>
+</body>
+</html>

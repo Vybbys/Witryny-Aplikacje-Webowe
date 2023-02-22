@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Galeria </title>
+    <link rel = "stylesheet" href = "styl7.css" />
+</head>
+<body>
+    <div id="baner">
+        <h2> Galeria miejsc ciekawych </h2>
+    </div>
+    
+    <div id="glowny">
+        <img src="lanzarotte.jpg" alt="galeria" id="zdjecie" />
+    </div>
+    
+    <div id="lewy">
+    <h3> Przeglądaj zdjęcia </h3>
+    <img src="lanzarotte.jpg" alt="lanzarotte" id="img1" onclick="ChangeImage(document.getElementById('img1').alt)">
+    <img src="pekin.jpg" alt="pekin" id="img2" onclick="ChangeImage(document.getElementById('img2').alt)">
+    <img src="serengeti.jpg" alt="serengeti" id="img3" onclick="ChangeImage(document.getElementById('img3').alt)">
+    <img src="wenecja.jpg" alt="wenecja" id="img4" onclick="ChangeImage(document.getElementById('img4').alt)">
+    <img src="tajlandia.jpg" alt="tajlandia" id="img5" onclick="ChangeImage(document.getElementById('img5').alt)">
+    </div>
+    
+    <div id="prawy">
+    <h3> Obrazy w naszej galerii</h3>
+    <table>
+        <tr>
+            <td> Europa </td> 
+            <td> Azja </td>
+            <td> Afryka</td>
+        </tr>
+        <tr>
+            <td> 2 </td>
+            <td> 2 </td>
+            <td> 1 </td>
+        </tr>
+    </table>
+    <p>
+        Polub nas <img src="icon-off.png" id="icon" alt="off" onclick="ChangeIcon()" />
+        <br><br>
+        <a href="https://pixabay.com">Odkryj więcej zdjęć</a>
+    </p>
+
+    </div>
+
+    <div id="stopka">
+        Autor: Filip Gos Czech 
+    </div>
+    
+    <script>
+        function ChangeImage(parametr)
+        {
+            if (parametr == 'lanzarotte')
+                document.getElementById('zdjecie').src = 'lanzarotte.jpg'
+            if (parametr == 'pekin')
+                document.getElementById('zdjecie').src = 'pekin.jpg'
+            if (parametr == 'serengeti')
+                document.getElementById('zdjecie').src = 'serengeti.jpg'
+            if (parametr == 'wenecja')
+                document.getElementById('zdjecie').src = 'wenecja.jpg'
+            if (parametr == 'tajlandia')
+                document.getElementById('zdjecie').src = 'tajlandia.jpg'
+        }
+
+        function ChangeIcon()
+        {
+            x = document.getElementById("icon").alt;
+            if(x =='off')
+            {
+                document.getElementById('icon').alt = "on";
+                document.getElementById('icon').src = 'icon-on.png';
+            }
+            else
+            {
+                document.getElementById('icon').alt = 'off';
+                document.getElementById('icon').src = 'icon-off.png';
+            }
+        }
+
+
+    </script>
+</body>
+</html>
