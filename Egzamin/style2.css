@@ -1,0 +1,66 @@
+.body{
+    font-family: Cambria;
+    text-align: center;
+}
+
+#footer{
+    background-color: rgb(120, 0, 46);
+    color: white;
+    padding: 5px;
+    font-size: 150%;
+    text-align: center;
+}
+
+#baner{
+    background-color: rgb(120, 0, 46);
+    color: white;
+    padding: 5px;
+    font-size: 150%;
+    text-align: center;
+}
+
+#menu{
+    background-color: rgb(173, 20, 87);
+    text-align: left;
+}
+
+#left{
+    background-color: snow;
+    color: olivedrab;
+    width: 60%;
+    height: 322px;
+    float: left;
+}
+
+#right{
+    background-color: rgb(173, 20, 87);
+    width: 40%;
+    height: 322px;
+    float: left;
+}
+
+#right img{
+    margin: 40px;
+    padding: 10px;
+}
+
+#menu img {
+    width: 80px;
+}
+
+#car:hover{
+    border: 1px yellowgreen dotted;
+}
+
+#menu img{
+    padding: 0px 50px 0px 50px;
+}
+
+#left table td {
+    border: 1px solid olivedrab;
+    text-align: center;
+}
+#left table{
+    width: 90%;
+    border: 1px solid olivedrab;
+}

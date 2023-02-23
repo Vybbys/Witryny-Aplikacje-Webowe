@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Stacja Paliw</title>
+</head>
+<script>
+
+    function GetInfo(){
+        let button = document.getElementById("guzior");
+        let fuel = document.getElementById("fuel").value;
+        let litr = document.getElementById("litr").value;
+        let wynik = document.getElementById("fuelCost");
+        let fuelCost = 0;
+
+        if(fuel == 1)
+            fuelCost = 4;
+        else if(fuel == 2)
+            fuelCost = 3.5;
+            
+
+        wynik.innerHTML = fuelCost * litr + "zł";
+    }
+</script>
+<body>
+    <div id = "baner">
+        <h1>
+            Całodobowa stacja paliw
+        </h1>
+    </div>
+    <div id = "menu">
+        <a href = "stacja.html"> <img src = "home.png" id = "home"/> </a>
+        <img src = "znak.png" id = "sign"/>
+    </div>
+    <div id = left>
+        <h2>
+            Orientacyjny koszt paliwa
+        </h2>
+        <form action="post">
+            Rodzaj paliwa (1-benzyna, 2-olej napedowy) <br/>
+            <input type = "number" id = "fuel"/> <br/>
+            Ile litrow <br>
+            <input type = "number" id = "litr"/> <br/>
+            <input type = "button" value = "Oblicz" id = "guzior" onclick="GetInfo()"/>
+            <p id = "fuelCost"></p>
+        </form>
+    </div>
+    <div id = "right">
+        <img src= "samochod.png" alt = "samochod" id = "car" />
+    </div>
+    <div id = "footer">
+        <p>
+            Strone opracowal: Ernest Kłak
+        </p>
+    </div>
+</body>
+</html>
