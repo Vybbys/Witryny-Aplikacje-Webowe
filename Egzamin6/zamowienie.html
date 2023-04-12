@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Zamówienie hurtowe </title>
+    <link rel = "stylesheet" href = "styl4.css" />
+</head>
+<body onload="lacks()">
+    <script>
+        function lacks(){
+                const tabela = document.getElementById("table");
+                cells = document.getElementById("table").rows[0].cells.length;
+                for(i = 1; i <= cells; i++){
+                    amount = tabela.rows[i].cells[2].innerText;
+                    if (amount == 0){
+                        tabela.rows[i].cells[2].style.background = "red";
+                    }else if(amount >0 && amount <= 5){
+                        tabela.rows[i].cells[2].style.background = "yellow";
+                    }else{
+                        tabela.rows[i].cells[2].style.background = "honeydew";
+                    }
+                }
+            }
+            function update(id){
+                new_amount = prompt("Podaj nową ilość: ");
+                let but = document.getElementsByClassName("p1");
+                let w1 = 0;
+                for (i=0; i < but.length; i++){
+                    if(id == but[i]){
+                        w1 = i
+                    }
+                }
+                document.getElementById("table").rows[w1+1].cells[2].innerHTML = new_amount;
+                lacks();
+            }
+            function order(id){
+                let but2 = document.getElementsByClassName("p2");
+                let w2 = 0;
+                for (i=0; i < but2.length; i++){
+                    if(id == but2[i]){
+                        w2 = i;
+                    }
+                }
+                nr = w2 + 1;
+                amount = document.getElementById("table").rows[nr].cells[2].innerText;
+                document.getElementById("table").rows[nr].cells[2].innerHTML = parseInt(amount) + 1;
+                name = document.getElementById("table").rows[nr].cells[0].innerText;
+                alert("Zamówienie nr: " + nr + " Produkt: " + name);
+                lacks();
+            }
+        </script>
+
+
+
+    <div id="baner">
+    <h1> Sieci komputerowe</h1>
+    </div>
+
+    <div id="left">
+    <h2> Aktualizacja i zamówienie<br> materiałów </h2>
+    <br>
+    <p> Do wenętrznego użytku firmy</p>
+    <br>
+    <img src="obraz.jpg" alt = "sieć komputerowa"/>
+    </div>
+
+    <div id="right">
+    <table id="table">
+        <tr>
+            <th>Produkt</th>
+            <th>Jednostka</th>
+            <th>Dostępna ilość</th>
+            <th>Aktualizacja</th>
+            <th>Zamówienie</th>
+        </tr>
+        <tr>
+            <td>Skrętka U/UTP drut</td>
+            <td>metr</td>
+            <td>20</td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Skrętka U/UTP linka</td>
+            <td>metr</td>
+            <td>2</td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Wtyki 8P8C</td>
+            <td>sztuki</td>
+            <td>10</td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Moduł Keystone</td>
+            <td>sztuki</td>
+            <td onclick="">30</td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
+        </tr>
+    </table>
+    
+    </div>
+
+    <div id="footer">
+        <a href="http://sieci.pl/" target="_blank">Nasza strona internetowa</a> <br>
+        <p>Stronę przygotował: Ernest Kłak</p>
+    </div>
+
+
+</body>
+</html>
