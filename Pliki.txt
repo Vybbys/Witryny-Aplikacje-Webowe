@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RezerwacjaMauiApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="10" Spacing="20">
+
+        <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="Rezerwacja stolika"
+            VerticalOptions="Start" />
+
+
+        <Grid
+            Padding="10"
+            ColumnSpacing="10"
+            RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 1" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 2" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 3" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 4" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 5" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="Green"
+                Clicked="OnTableClicked"
+                Text="Stolik 6" />
+        </Grid>
+
+
+        <Entry x:Name="NameEntry" Placeholder="Wprowadź imię i nazwisko" />
+
+        <Picker x:Name="TimePicker" Title="Wybierz godzinę">
+
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>09:00</x:String>
+                    <x:String>10:00</x:String>
+                    <x:String>11:00</x:String>
+                    <x:String>12:00</x:String>
+                    <x:String>13:00</x:String>
+                    <x:String>14:00</x:String>
+                    <x:String>15:00</x:String>
+                    <x:String>16:00</x:String>
+                    <x:String>17:00</x:String>
+                    <x:String>18:00</x:String>
+                    <x:String>19:00</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button
+            BackgroundColor="Blue"
+            Clicked="OnReserveTableClicked"
+            Text="Zarezerwuj stolik"
+            TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>
+
+
+
+---------------------
+
+
+
+
+namespace RezerwacjaMauiApp
+{
+    public partial class MainPage : ContentPage
+    {
+
+        private Button _selectedTable; 
+        private readonly Dictionary<Button, List<(DateTime start, DateTime end)>> _reservations; 
+
+        public MainPage()
+        {
+            InitializeComponent();
+            _reservations = new Dictionary<Button, List<(DateTime start, DateTime end)>>();
+        }
+
+        private void OnTableClicked(object sender, EventArgs e)
+        {
+            if (sender is Button tableButton)
+            {
+                if (_selectedTable != null)
+                {
+                    _selectedTable.BorderWidth = 0;
+                }
+
+                _selectedTable = tableButton;
+                _selectedTable.BorderWidth = 3;
+                _selectedTable.BorderColor = Colors.Blue;
+            }
+        }
+
+        private async void OnReserveTableClicked(object sender, EventArgs e)
+        {
+            if (_selectedTable == null)
+            {
+                await DisplayAlert("Błąd", "Nie wybrano stolika.", "OK");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(NameEntry.Text))
+            {
+                await DisplayAlert("Błąd", "Proszę wprowadzić imię i nazwisko.", "OK");
+                return;
+            }
+
+            if (TimePicker.SelectedItem == null)
+            {
+                await DisplayAlert("Błąd", "Proszę wybrać godzinę rezerwacji.", "OK");
+                return;
+            }
+
+            string selectedTime = TimePicker.SelectedItem.ToString();
+            DateTime startTime = DateTime.Today.Add(TimeSpan.Parse(selectedTime));
+            DateTime endTime = startTime.AddHours(2);
+
+            if (!_reservations.ContainsKey(_selectedTable))
+            {
+                _reservations[_selectedTable] = new List<(DateTime, DateTime)>();
+            }
+
+            foreach (var reservation in _reservations[_selectedTable])
+            {
+                if (startTime < reservation.end && endTime > reservation.start)
+                {
+                    await DisplayAlert("Błąd", "Stolik jest zajęty w wybranym czasie.", "OK");
+                    return;
+                }
+            }
+
+            _reservations[_selectedTable].Add((startTime, endTime));
+
+            _selectedTable.BackgroundColor = Colors.Red;
+            _selectedTable.Text = $"{_selectedTable.Text}\n{NameEntry.Text}\n{selectedTime} - {endTime:HH:mm}";
+
+            _selectedTable.BorderWidth = 0;
+            _selectedTable = null;
+            NameEntry.Text = string.Empty;
+            TimePicker.SelectedItem = null;
+
+            await DisplayAlert("Sukces", "Stolik został zarezerwowany.", "OK");
+        }
+    }
+}
