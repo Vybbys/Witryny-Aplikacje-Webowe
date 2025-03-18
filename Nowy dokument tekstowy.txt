@@ -1,0 +1,87 @@
+class UserDatabase {
+    constructor() {
+        this.users = [];
+        this.idCounter = 1;
+    }
+
+    addUser(name, surname, age) {
+        const user = { id: this.idCounter++, name, surname, age };
+        this.users.push(user);
+        console.log(`Dodano użytkownika:`, user);
+        this.renderUsers();
+        return user;
+    }
+
+    removeUser(id) {
+        const index = this.users.findIndex(user => user.id === id);
+        if (index !== -1) {
+            const removedUser = this.users.splice(index, 1);
+            console.log(`Usunięto użytkownika:`, removedUser[0]);
+            this.renderUsers();
+        } else {
+            console.log(`Użytkownik o ID ${id} nie istnieje.`);
+        }
+    }
+
+    updateUser(id, newName, newSurname, newAge) {
+        const user = this.users.find(user => user.id === id);
+        if (user) {
+            user.name = newName || user.name;
+            user.surname = newSurname || user.surname;
+            user.age = newAge || user.age;
+            console.log(`Zaktualizowano użytkownika:`, user);
+            this.renderUsers();
+        } else {
+            console.log(`Użytkownik o ID ${id} nie istnieje.`);
+        }
+    }
+
+    listUsers() {
+        console.log(`Lista użytkowników:`, this.users);
+        return this.users;
+    }
+
+    renderUsers() {
+        const userList = document.getElementById("userList");
+        userList.innerHTML = "";
+        this.users.forEach(user => {
+            const li = document.createElement("li");
+            li.textContent = `${user.id}: ${user.name} ${user.surname}, Wiek: ${user.age}`;
+            userList.appendChild(li);
+        });
+    }
+}
+
+const db = new UserDatabase();
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("addUserForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const surname = document.getElementById("surname").value;
+        const age = document.getElementById("age").value;
+        db.addUser(name, surname, age);
+        document.getElementById("addUserForm").reset();
+    });
+
+    document.getElementById("removeUserForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const userId = parseInt(document.getElementById("userId").value);
+        db.removeUser(userId);
+        document.getElementById("removeUserForm").reset();
+    });
+});
+
+
+<form id="addUserForm">
+    <input type="text" id="name" placeholder="Imię" required>
+    <input type="text" id="surname" placeholder="Nazwisko" required>
+    <input type="number" id="age" placeholder="Wiek" required>
+    <button type="submit">Dodaj użytkownika</button>
+</form>
+<ul id="userList"></ul>
+
+<form id="removeUserForm">
+    <input type="number" id="userId" placeholder="ID do usunięcia" required>
+    <button type="submit">Usuń użytkownika</button>
+</form>
